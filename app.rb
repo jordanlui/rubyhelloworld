@@ -12,6 +12,10 @@ get "/cats" do
 	"This is a page about cats"
 end
 
+get "/cat" do
+	send_file "cat.html"
+end
+
 get "/space" do
 	"So you like space stuff? We should put a photo here"
 end
