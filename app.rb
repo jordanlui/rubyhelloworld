@@ -1,25 +1,36 @@
 require "sinatra"
 require "open-uri"
 require "json"
+set :views, settings.root + '/templates'
 
 get "/" do
-	# "HELLO WORLD"
-	erb :home
+	"HELLO WORLD"
+	# erb :home
+	
 end
 
 get "/about" do
 	"This is Jordan's first Ruby app on Heroku. Feeling good"
 end
 
-get "/api" do
-	response = open('https://api.nasa.gov/planetary/apod?api_key=NNKOjkoul8n1CH18TWA9gwngW1s1SmjESPjNoUFo').read
+get "/pod" do
+	response = open('https://api.nasa.gov/planetary/apod?api_key=1y24jFuTzpmxmAuIzbq8a3TlavyUZk8hqrBIREUO').read
 	response = JSON.parse(response)
 	url = response["url"]
 
-	"API PAGE. Result is #{response["url"]}"
+	# "API PAGE. Result is #{response["url"]}"
+	erb :img, :locals => {:url => url}
 end
 
+get "/mars" do
+	target = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=1y24jFuTzpmxmAuIzbq8a3TlavyUZk8hqrBIREUO"
+	response = open(target).read
+	response = JSON.parse(response)
+	url = response["photos"][0]["img_src"]
 
+	# "API PAGE. Result is #{url}"
+	erb :img, :locals => {:url => url}
+end
 
 get "/cats" do
 	# inline cat image HTML tag?
