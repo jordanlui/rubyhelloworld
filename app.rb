@@ -4,8 +4,8 @@ require "json"
 set :views, settings.root + '/templates'
 
 get "/" do
-	"HELLO WORLD"
-	# erb :home
+	
+	erb :main
 	
 end
 
