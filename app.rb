@@ -9,6 +9,10 @@ get "/" do
 	
 end
 
+get "/main" do
+	erb :main
+end
+
 get "/about" do
 	"This is Jordan's first Ruby app on Heroku. Feeling good"
 end
