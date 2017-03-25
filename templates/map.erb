@@ -1,3 +1,10 @@
-<h1> Here is a google map </h1> <br>
-<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Rome&key=AIzaSyCcI7G-0OWztHP8-uOkjdHJyXOJc3Xf-XQ" allowfullscreen></iframe> 
+<%
+location = "Rome" if location.nil? || location.empty?
+%>
+
+<h1> Here is a map of <%= location%> </h1> <br>
+<!-- Check if we have a blank location input first -->
+
+
+<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<%= location%>&key=AIzaSyCcI7G-0OWztHP8-uOkjdHJyXOJc3Xf-XQ" allowfullscreen></iframe> 
 <h1> Thanks for viewing! </h1>

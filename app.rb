@@ -39,9 +39,16 @@ get "/mars" do
 end
 
 get "/map" do
-	# deliver link to a map page
+	# deliver link to a map page with static location
 	"this will be a map page"
 	erb :map
+end
+
+get "/map/:loc" do
+	location = params[:loc]
+	"You want to see a map from #{location}"
+	#  open map.erb and send the location tag
+	erb :map, :locals => {:location => location}
 end
 
 get "/cats" do
