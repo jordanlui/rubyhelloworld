@@ -32,6 +32,12 @@ get "/mars" do
 	erb :img, :locals => {:url => url}
 end
 
+get "/map" do
+	# deliver link to a map page
+	"this will be a map page"
+	erb :map
+end
+
 get "/cats" do
 	# inline cat image HTML tag?
 	"This is a page about cats"
@@ -42,6 +48,8 @@ get "/cat" do
 	# This is how we link out to an HTL page
 	send_file "cat.html"
 end
+
+
 
 get "/space" do
 	"So you like space stuff? We should put a photo here"
