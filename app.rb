@@ -10,7 +10,9 @@ get "/" do
 end
 
 get "/main" do
+
 	erb :main
+
 end
 
 get "/about" do
