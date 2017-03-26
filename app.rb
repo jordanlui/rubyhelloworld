@@ -38,6 +38,12 @@ get "/mars" do
 	erb :img, :locals => {:url => url}
 end
 
+get "/esa" do
+	
+	target = "https://scihub.copernicus.eu/dhus/search?q=footprint:%22Intersects(41.9000,%2012.5000)%22"
+	"Results from a Sentinel query for Rome are below #{target}"
+end
+
 get "/map" do
 	# deliver link to a map page with static location
 	"this will be a map page"
